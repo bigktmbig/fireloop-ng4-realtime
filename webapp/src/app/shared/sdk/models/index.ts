@@ -1,5 +1,6 @@
 /* tslint:disable */
-export * from './User';
 export * from './Todo';
+export * from './Note';
+export * from './BigUser';
 export * from './BaseModels';
 export * from './FireLoopRef';

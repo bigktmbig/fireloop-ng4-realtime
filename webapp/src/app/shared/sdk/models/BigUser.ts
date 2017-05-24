@@ -1,7 +1,11 @@
 /* tslint:disable */
 
 declare var Object: any;
-export interface UserInterface {
+export interface BigUserInterface {
+  "name"?: string;
+  "onOff"?: boolean;
+  "firstName"?: string;
+  "lastName"?: string;
   "realm"?: string;
   "username"?: string;
   "password": string;
@@ -9,10 +13,17 @@ export interface UserInterface {
   "emailVerified"?: boolean;
   "verificationToken"?: string;
   "id"?: number;
+  "createdAt"?: Date;
+  "updatedAt"?: Date;
   accessTokens?: any[];
+  roles?: any[];
 }
 
-export class User implements UserInterface {
+export class BigUser implements BigUserInterface {
+  "name": string;
+  "onOff": boolean;
+  "firstName": string;
+  "lastName": string;
   "realm": string;
   "username": string;
   "password": string;
@@ -20,25 +31,28 @@ export class User implements UserInterface {
   "emailVerified": boolean;
   "verificationToken": string;
   "id": number;
+  "createdAt": Date;
+  "updatedAt": Date;
   accessTokens: any[];
-  constructor(data?: UserInterface) {
+  roles: any[];
+  constructor(data?: BigUserInterface) {
     Object.assign(this, data);
   }
   /**
    * The name of the model represented by this $resource,
-   * i.e. `User`.
+   * i.e. `BigUser`.
    */
   public static getModelName() {
-    return "User";
+    return "BigUser";
   }
   /**
   * @method factory
   * @author Jonathan Casarrubias
   * @license MIT
-  * This method creates an instance of User for dynamic purposes.
+  * This method creates an instance of BigUser for dynamic purposes.
   **/
-  public static factory(data: UserInterface): User{
-    return new User(data);
+  public static factory(data: BigUserInterface): BigUser{
+    return new BigUser(data);
   }
   /**
   * @method getModelDefinition
@@ -49,9 +63,25 @@ export class User implements UserInterface {
   **/
   public static getModelDefinition() {
     return {
-      name: 'User',
-      plural: 'Users',
+      name: 'BigUser',
+      plural: 'big-users',
       properties: {
+        "name": {
+          name: 'name',
+          type: 'string'
+        },
+        "onOff": {
+          name: 'onOff',
+          type: 'boolean'
+        },
+        "firstName": {
+          name: 'firstName',
+          type: 'string'
+        },
+        "lastName": {
+          name: 'lastName',
+          type: 'string'
+        },
         "realm": {
           name: 'realm',
           type: 'string'
@@ -80,10 +110,23 @@ export class User implements UserInterface {
           name: 'id',
           type: 'number'
         },
+        "createdAt": {
+          name: 'createdAt',
+          type: 'Date'
+        },
+        "updatedAt": {
+          name: 'updatedAt',
+          type: 'Date'
+        },
       },
       relations: {
         accessTokens: {
           name: 'accessTokens',
+          type: 'any[]',
+          model: ''
+        },
+        roles: {
+          name: 'roles',
           type: 'any[]',
           model: ''
         },

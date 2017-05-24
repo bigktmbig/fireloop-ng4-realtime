@@ -48,8 +48,9 @@ import { SocketBrowser } from './sockets/socket.browser';
 import { SocketDriver } from './sockets/socket.driver';
 import { SocketConnection } from './sockets/socket.connections';
 import { RealTime } from './services/core/real.time';
-import { UserApi } from './services/custom/User';
 import { TodoApi } from './services/custom/Todo';
+import { NoteApi } from './services/custom/Note';
+import { BigUserApi } from './services/custom/BigUser';
 /**
 * @module SDKBrowserModule
 * @description
@@ -81,8 +82,9 @@ export class SDKBrowserModule {
         JSONSearchParams,
         SDKModels,
         RealTime,
-        UserApi,
         TodoApi,
+        NoteApi,
+        BigUserApi,
         internalStorageProvider,
         { provide: SDKStorage, useClass: StorageBrowser },
         { provide: SocketDriver, useClass: SocketBrowser }
