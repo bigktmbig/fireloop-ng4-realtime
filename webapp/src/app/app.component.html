@@ -1,16 +1,15 @@
 <app-header></app-header>
-<h1>
+<router-outlet></router-outlet>
+<!-- <h1>
 	{{title}}
 </h1>
 <form (submit)="create()">
 	<input name="todo" type="text" [(ngModel)]="todo.text" placeholder="Add todo" />
-	<!-- <input name="todo" type="date" [(ngModel)]="todo.createdAt" placeholder="Create Date" /> -->
 	<button>Add todo</button>
 </form>
 <ul *ngIf="todoRef">
 	<li *ngFor="let _todo of todos">
 		<input name="_todo.id" [(ngModel)]="_todo.text" />
-		<!-- <input name="_todo" type="date" [(ngModel)]="_todo.updatedAt" placeholder="Update Date" /> -->
 		<button (click)="update(_todo)">Update</button>
 		<button (click)="remove(_todo)">Remove</button>
 	</li>
@@ -20,5 +19,5 @@
 </h1>
 <ul>
 	<li *ngFor="let _todoList of todoList">{{_todoList.text}}</li>
-</ul>
+</ul> -->
 <app-footer></app-footer>
