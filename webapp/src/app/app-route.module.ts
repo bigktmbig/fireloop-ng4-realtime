@@ -9,10 +9,41 @@ import { PageNotfoundComponent } from './layout/page-notfound/page-notfound.comp
 
 const appRoutes: Routes = [
 {
-	path: 'admin', component: DashboardComponent, data: {title: 'Dashboard'}
+	path: 'admin', 
+	component: DashboardComponent, 
+	data: {
+		title: 'Dashboard',
+		metas: [
+		{ name: 'author',   content: 'bigdeveloper.com'},
+		{ name: 'keywords', content: 'admin'},
+		{ name: 'description', content: 'This is my admin!' }
+		]
+	}
 },
-{ path: '', component: HomepageComponent, data: {title: 'Home page'} },
-{ path: '**', component: PageNotfoundComponent, data: {title: 'Not found'} }
+{ 
+	path: '',
+	component: HomepageComponent,
+	data: {
+		title: 'Home page',
+		metas: [
+		{ name: 'author',   content: 'bigdeveloper.com'},
+		{ name: 'keywords', content: 'home'},
+		{ name: 'description', content: 'This is my home!' }
+		]
+	} 
+},
+{ 
+	path: '**', 
+	component: PageNotfoundComponent, 
+	data: {
+		title: 'Not found',
+		metas: [
+		{ name: 'author',   content: 'bigdeveloper.com'},
+		{ name: 'keywords', content: 'not found'},
+		{ name: 'description', content: 'This is my Not found!' }
+		]
+	} 
+}
 ];
 
 @NgModule({
