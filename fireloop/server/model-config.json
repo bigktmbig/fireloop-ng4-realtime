@@ -42,9 +42,65 @@
   },
   "Note": {
     "dataSource": "db",
-    "public": true
+    "public": false
   },
   "BigUser": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Customer": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Category": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Supplier": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Default": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Pbs": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Return": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Service": {
+    "dataSource": "db",
+    "public": true
+  },
+  "ServiceStore": {
+    "dataSource": "db",
+    "public": true
+  },
+  "ServiceTmp": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Store": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Point": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Repoint": {
+    "dataSource": "db",
+    "public": true
+  },
+  "RepointDefault": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Log": {
     "dataSource": "db",
     "public": true
   }

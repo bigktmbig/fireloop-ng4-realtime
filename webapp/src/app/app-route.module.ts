@@ -3,35 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { PreloadStrategyService } from './services/preload-strategy.service';
 
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { HomepageComponent } from './homepage/homepage.component';
 import { PageNotfoundComponent } from './layout/page-notfound/page-notfound.component';
 
+import { DashboardRoutingModule } from './dashboard/dashboard-routing.module';
+import { HomepageRoutingModule } from './homepage/homepage-routing.module';
+
 const appRoutes: Routes = [
-{
-	path: 'admin', 
-	component: DashboardComponent, 
-	data: {
-		title: 'Dashboard',
-		metas: [
-		{ name: 'author',   content: 'bigdeveloper.com'},
-		{ name: 'keywords', content: 'admin'},
-		{ name: 'description', content: 'This is my admin!' }
-		]
-	}
-},
-{ 
-	path: '',
-	component: HomepageComponent,
-	data: {
-		title: 'Home page',
-		metas: [
-		{ name: 'author',   content: 'bigdeveloper.com'},
-		{ name: 'keywords', content: 'home'},
-		{ name: 'description', content: 'This is my home!' }
-		]
-	} 
-},
 { 
 	path: '**', 
 	component: PageNotfoundComponent, 
@@ -49,6 +26,8 @@ const appRoutes: Routes = [
 @NgModule({
 	imports: [
 	CommonModule,
+	DashboardRoutingModule,
+	HomepageRoutingModule,
 	RouterModule.forRoot(
 		appRoutes,
 		{ preloadingStrategy: PreloadStrategyService }

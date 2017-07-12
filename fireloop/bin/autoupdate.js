@@ -4,7 +4,9 @@ var path = require('path');
 
 var app = require(path.resolve(__dirname, '../server/server'));
 var ds = app.datasources.mongodb;
-var models = ['AccessToken', 'ACL', 'Role', 'RoleMapping', 'BigUser', 'Todo', 'Note'];
+var models = ['AccessToken', 'ACL', 'Role', 'RoleMapping', 'BigUser', 'Todo', 'Note',
+'Customer', 'Category', 'Supplier', 'Default', 'Pbs', 'Return', 'Service', 'ServiceStore', 
+'ServiceTmp', 'Store', 'Point', 'Repoint', 'RepointDefault', 'Log'];
 console.log('Updating...');
 ds.autoupdate(models, function(err, result) {
     if (err) throw err;
