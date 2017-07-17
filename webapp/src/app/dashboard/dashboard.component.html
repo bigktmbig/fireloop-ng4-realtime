@@ -1,3 +1,16 @@
-<p>
-  dashboard works!
-</p>
+<h1>
+	Dashboard works!
+</h1>
+<form name="loginForm" id="login_form">
+	<input name="email" type="text" [(ngModel)]="user.email" placeholder="Enter username or email" />
+	<input name="password" type="password" [(ngModel)]="user.password" placeholder="Enter password" />
+	<button (click)="login()">Login</button>
+	<button (click)="logout()">Logout</button>
+	<button (click)="create()">Create</button>
+</form>
+<h1> List users</h1>
+<ul *ngIf="userRef">
+<li *ngFor="let _user of users">
+		<span>{{_user.email}}</span>
+	</li>
+</ul>

@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { DashboardComponent } from './dashboard.component';
 import { UserComponent } from './user/user.component';
+
+import { AuthAdminService } from '../services/auth-admin.service';
 const routes: Routes = [
 {
 	path: 'admin', 
@@ -26,7 +28,8 @@ const routes: Routes = [
 		{ name: 'keywords', content: 'user'},
 		{ name: 'description', content: 'This is my user!' }
 		]
-	} 
+	},
+	canActivate: [AuthAdminService]
 }
 ];
 
