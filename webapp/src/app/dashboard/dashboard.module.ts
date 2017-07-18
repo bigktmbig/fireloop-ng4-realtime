@@ -10,12 +10,8 @@ import { AuthService } from '../services/auth.service';
 import { CookieService } from 'ngx-cookie-service';
 
 @NgModule({
-	imports: [
-	CommonModule,
-	FormsModule,
-	DashboardRoutingModule
-	],
+	imports: [CommonModule, FormsModule, DashboardRoutingModule],
 	declarations: [UserComponent],
-	providers: [AuthService,CookieService,AuthAdminService]
+	providers: [AuthService, CookieService, AuthAdminService]
 })
 export class DashboardModule { }
