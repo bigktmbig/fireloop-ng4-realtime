@@ -39,8 +39,8 @@ export class AppModule {
     console.log(router.config);
     for (var i = 0; i < router.config.length; ++i) {
       // if(router.currentRouterState.snapshot.url == router.config[i].path) {
-      //   titleService.setTitle(router.config[i].data.title);
-      // }
+        //   titleService.setTitle(router.config[i].data.title);
+        // }
+      }
     }
   }
-}

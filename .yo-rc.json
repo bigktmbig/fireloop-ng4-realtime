@@ -9,6 +9,10 @@
       "webapp": {
         "path": "./webapp",
         "type": "ng2web"
+      },
+      "reactapp": {
+        "path": "./reactapp",
+        "type": "ng2web"
       }
     }
   }

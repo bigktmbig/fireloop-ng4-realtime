@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+declare var jquery:any;
+declare var $ :any;
 
 @Component({
-  selector: 'app-homepage',
-  templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.css']
+	selector: 'app-homepage',
+	templateUrl: './homepage.component.html',
+	styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
 
-  constructor() { }
+	constructor() { }
 
-  ngOnInit() {
-  }
+	ngOnInit() {
+
+	}
 
 }
