@@ -14,11 +14,13 @@ export class AuthService implements CanActivate {
 	}
 
 	canActivate() {
-		if (this.bigUserApi.isAuthenticated()) {
-			return true;
-		} else {
-			this.router.navigate(['/admin']);
-			return false;
+		if(this.cookieService.check('User')) {
+			if (this.bigUserApi.isAuthenticated()) {
+				return true;
+			} else {
+				this.router.navigate(['/todo']);
+				return false;
+			}
 		}
 	}
 

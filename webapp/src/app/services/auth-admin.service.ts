@@ -15,8 +15,8 @@ export class AuthAdminService implements CanActivate {
 	}
 
 	canActivate() {
-		if(this.cookieService.check('User')) {
-			this.cookieUser = this.cookieService.get('User', 'object');
+		if(this.cookieService.check('Admin')) {
+			this.cookieUser = this.cookieService.get('Admin', 'object');
 			if(this.cookieUser && this.cookieUser.roles) {
 				this.arrRoles = this.cookieUser.roles.filter((val: string) => {
 					return ['admin'].indexOf(val) !== -1;

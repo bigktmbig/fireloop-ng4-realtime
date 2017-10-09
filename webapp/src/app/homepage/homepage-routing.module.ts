@@ -4,6 +4,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomepageComponent } from './homepage.component';
 import { LoginComponent } from './login/login.component';
 import { TodoComponent } from './todo/todo.component';
+
+import { AuthService } from '../services/auth.service';
 const routes: Routes = [
 { 
 	path: '',
@@ -27,7 +29,7 @@ const routes: Routes = [
 		{ name: 'keywords', content: 'login'},
 		{ name: 'description', content: 'This is my login!' }
 		]
-	} 
+	}
 },
 { 
 	path: 'todo',
@@ -39,7 +41,8 @@ const routes: Routes = [
 		{ name: 'keywords', content: 'todo'},
 		{ name: 'description', content: 'This is my todo!' }
 		]
-	} 
+	},
+	canActivate: [AuthService]
 }
 ];
 

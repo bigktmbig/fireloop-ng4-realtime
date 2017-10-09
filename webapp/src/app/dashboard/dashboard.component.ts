@@ -42,7 +42,7 @@ export class DashboardComponent implements OnInit {
 		.subscribe(
 			responese => {
 				if(responese) {
-					this.cookieService.set('User', responese, 'object');
+					this.cookieService.set('Admin', responese, 'object');
 				}
 			},
 			error => {
@@ -53,7 +53,7 @@ export class DashboardComponent implements OnInit {
 	logout(): void {
 		this.bigUserApi.logout()
 		.subscribe((user: BigUserApi[]) => {
-			this.cookieService.delete('User');
+			this.cookieService.delete('Admin');
 		});
 	}
 }
