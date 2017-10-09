@@ -1,5 +1,8 @@
 <div class="wrap-container">
-	<div id="map"></div>
+	<!-- <div id="map"></div> -->
+	<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+		<agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+	</agm-map>
 	<div id="legend">
 		<h4>Search Motel(beta)*</h4>
 		<p>Totals: <strong>12</strong></p>

@@ -6,23 +6,7 @@
 <meta name="description" content="Search motels, motels, Đà Nẵng motels">
 <meta name="viewport" content="width=device-width">
 
-<script type="text/javascript">
-	function initMap() {
-		var lat = 16.057683;
-		var lng = 108.219415;
-		var radius = 10;
-		var mapOptions = {
-			zoom: 13,
-			center: new google.maps.LatLng(lat, lng),
-			mapTypeId: google.maps.MapTypeId.TERRAIN
-		}
-
-		var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-	}
-</script>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADPPgcIAf7t6nIzf7Do467IWOU6OQkst8&libraries=places,visualization&callback=initMap" async defer></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 <head>
 	<meta charset="utf-8">
@@ -36,13 +20,3 @@
 	<app-root>Loading...</app-root>
 </body>
 </html>
-<script type="text/javascript">
-	$(document).ready(function(e) {
-		var hheight = $(window).height();
-		$('#map').css('height', hheight + 18);
-		$(window).resize(function(){
-			var hheight = $(window).height();
-			$('#map').css('height', hheight + 18);
-		});
-	});
-</script>
