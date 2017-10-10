@@ -1,0 +1,64 @@
+{
+  "name": "Room",
+  "plural": "rooms",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "square": {
+      "type": "number",
+      "default": 0
+    },
+    "cost": {
+      "type": "string",
+      "required": true,
+      "default": "0"
+    },
+    "note": {
+      "type": "string"
+    },
+    "number_of_people": {
+      "type": "number"
+    },
+    "is_toilet": {
+      "type": "boolean"
+    },
+    "house_id": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "house": {
+      "type": "belongsTo",
+      "model": "House",
+      "foreignKey": "house_id"
+    }
+  },
+  "acls": [],
+  "methods": {},
+  "mixins": {
+    "TimeStamp": {
+      "required": false
+    },
+    "Stats": [
+      {
+        "method": "stats",
+        "endpoint": "/stats",
+        "description": "Statistical information for Room registers.",
+        "type": "model",
+        "count": {
+          "on": "createdAt",
+          "by": "index"
+        }
+      }
+    ]
+  }
+}

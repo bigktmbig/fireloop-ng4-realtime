@@ -1,3 +1,11 @@
-<p>
-	homepage works!
-</p>
+<div class="wrap-container">
+	<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+		<agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+	</agm-map>
+	<div id="legend">
+		<h4>Search Motel(beta)*</h4>
+		<p>Totals: <strong>12</strong></p>
+		<p>Rooms On: <strong>100</strong></p>
+		<p>Rooms Off: <strong>200</strong></p>
+	</div>
+</div>

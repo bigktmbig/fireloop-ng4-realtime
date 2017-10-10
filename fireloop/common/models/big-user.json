@@ -53,6 +53,11 @@
       "foreignKey": "principalId",
       "mode": "Role",
       "through": "RoleMapping"
+    },
+    "houses": {
+      "type": "hasMany",
+      "model": "House",
+      "foreignKey": "owner_id"
     }
   },
   "acls": [

@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HomepageRoutingModule } from './homepage-routing.module';
 import { LoginComponent } from './login/login.component';
 import { TodoComponent } from './todo/todo.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
 	imports: [
@@ -12,6 +13,6 @@ import { TodoComponent } from './todo/todo.component';
 	FormsModule,
 	HomepageRoutingModule
 	],
-	declarations: [LoginComponent, TodoComponent]
+	declarations: [LoginComponent, TodoComponent, ProfileComponent]
 })
 export class HomepageModule { }

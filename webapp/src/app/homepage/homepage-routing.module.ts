@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomepageComponent } from './homepage.component';
 import { LoginComponent } from './login/login.component';
 import { TodoComponent } from './todo/todo.component';
+import { ProfileComponent } from './profile/profile.component';
 
 import { AuthService } from '../services/auth.service';
 const routes: Routes = [
@@ -40,6 +41,19 @@ const routes: Routes = [
 		{ name: 'author',   content: 'bigdeveloper.com'},
 		{ name: 'keywords', content: 'todo'},
 		{ name: 'description', content: 'This is my todo!' }
+		]
+	},
+	canActivate: [AuthService]
+},
+{ 
+	path: 'profile',
+	component: ProfileComponent,
+	data: {
+		title: 'Profile page',
+		metas: [
+		{ name: 'author',   content: 'bigdeveloper.com'},
+		{ name: 'keywords', content: 'profile'},
+		{ name: 'description', content: 'This is my profile!' }
 		]
 	},
 	canActivate: [AuthService]

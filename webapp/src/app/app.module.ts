@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 import { AppRouteModule } from './app-route.module';
 import { PageNotfoundComponent } from './layout/page-notfound/page-notfound.component';
 import { Title } from '@angular/platform-browser';
+import { AgmCoreModule } from '@agm/core';
 
 
 import { DashboardModule } from './dashboard/dashboard.module';
@@ -34,6 +35,9 @@ import { HomepageModule } from './homepage/homepage.module';
   AppRouteModule,
   DashboardModule,
   HomepageModule,
+  AgmCoreModule.forRoot({
+    apiKey: 'AIzaSyADPPgcIAf7t6nIzf7Do467IWOU6OQkst8'
+  }),
   SDKBrowserModule.forRoot()
   ],
   providers: [],
@@ -45,8 +49,8 @@ export class AppModule {
     //console.log(router.config);
     for (var i = 0; i < router.config.length; ++i) {
       // if(router.currentRouterState.snapshot.url == router.config[i].path) {
-      //   titleService.setTitle(router.config[i].data.title);
-      // }
+        //   titleService.setTitle(router.config[i].data.title);
+        // }
+      }
     }
   }
-}

@@ -1,0 +1,71 @@
+{
+  "name": "House",
+  "plural": "houses",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "mixins": {
+    "TimeStamp": {
+      "required": false
+    },
+    "Stats": [
+      {
+        "method": "stats",
+        "endpoint": "/stats",
+        "description": "Statistical information for House registers.",
+        "type": "model",
+        "count": {
+          "on": "createdAt",
+          "by": "index"
+        }
+      }
+    ]
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "default": "my house"
+    },
+    "address": {
+      "type": "string",
+      "required": true,
+      "default": "666 Ngo quyen"
+    },
+    "latitude": {
+      "type": "number",
+      "required": true,
+      "default": 16.057683
+    },
+    "longitude": {
+      "type": "number",
+      "required": true,
+      "default": 108.219415
+    },
+    "radius": {
+      "type": "number",
+      "default": 10
+    },
+    "owner_id": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "BigUser",
+      "foreignKey": "owner_id"
+    },
+    "rooms": {
+      "type": "hasMany",
+      "model": "Room",
+      "foreignKey": "house_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
