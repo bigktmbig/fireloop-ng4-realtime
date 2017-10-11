@@ -14,6 +14,7 @@ import { AppRouteModule } from './app-route.module';
 import { PageNotfoundComponent } from './layout/page-notfound/page-notfound.component';
 import { Title } from '@angular/platform-browser';
 import { AgmCoreModule } from '@agm/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 
 import { DashboardModule } from './dashboard/dashboard.module';
@@ -35,6 +36,7 @@ import { HomepageModule } from './homepage/homepage.module';
   AppRouteModule,
   DashboardModule,
   HomepageModule,
+  NgbModule,
   AgmCoreModule.forRoot({
     apiKey: 'AIzaSyADPPgcIAf7t6nIzf7Do467IWOU6OQkst8'
   }),

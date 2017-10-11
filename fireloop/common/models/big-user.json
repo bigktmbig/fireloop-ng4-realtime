@@ -32,6 +32,10 @@
       "type": "string",
       "required": false
     },
+    "phone": {
+      "type": "string",
+      "required": false
+    },
     "onOff": {
       "type": "boolean",
       "required": false,

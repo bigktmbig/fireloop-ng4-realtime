@@ -1,3 +1,45 @@
 <p>
-  profile works!
+	Profile works!
 </p>
+<div class="wrap-container">
+	<div class="row">
+		<div class="col-md-5">
+			<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" (mapClick)="mapClicked($event)">
+				<agm-marker *ngFor="let m of markers; let i = index" [latitude]="m.lat" [longitude]="m.lng"></agm-marker>
+			</agm-map>
+			<div id="legend">
+				<h4>Search Motel(beta)*</h4>
+				<p>Totals: <strong>12</strong></p>
+				<p>Rooms On: <strong>100</strong></p>
+				<p>Rooms Off: <strong>200</strong></p>
+			</div>
+		</div>
+		<div class="col-md-7">
+			<h3>Nhà của bạn ở đâu nhỉ?</h3>
+			<div class="container-information">
+				<form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+
+					<div class="form-group">
+						<label for="address">Địa Chỉ</label>
+						<input type="text" class="form-control" id="address"
+						[(ngModel)]="profile.address" name="address">
+					</div>
+
+					<div class="form-group">
+						<label for="name">Tên Nhà</label>
+						<input type="text" class="form-control" id="name"
+						required
+						[(ngModel)]="profile.name" name="name" #name="ngModel">
+						<div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+							Name is required
+						</div>
+					</div>
+
+					<button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
+					<button type="button" class="btn btn-default" (click)="heroForm.reset()">Reset</button>
+
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
