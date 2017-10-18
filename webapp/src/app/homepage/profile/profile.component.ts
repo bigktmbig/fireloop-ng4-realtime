@@ -7,8 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class ProfileComponent implements OnInit {
-	lat: number = 16.057683;
-	lng: number = 108.219415;
+	latitude: number = 16.057683;
+	longitude: number = 108.219415;
+	address: string = "Chưa xác định";
 	zoom: number = 13;
 	radius: number = 10;
 	profile: object = {};
@@ -18,8 +19,9 @@ export class ProfileComponent implements OnInit {
 
 	ngOnInit() {
 		this.markers.push({
-			lat: this.lat,
-			lng: this.lng
+			address: this.address,
+			latitude: this.latitude,
+			longitude: this.longitude
 		});
 	}
 
@@ -29,9 +31,14 @@ export class ProfileComponent implements OnInit {
 
 	mapClicked($event: any) {
 		this.markers.push({
-			lat: $event.coords.lat,
-			lng: $event.coords.lng
+			address: this.address,
+			latitude: $event.coords.lat,
+			longitude: $event.coords.lng
 		});
+	}
+
+	removePosition(idx: number) {
+		this.markers.splice(idx, 1);
 	}
 
 }

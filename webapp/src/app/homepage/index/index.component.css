@@ -1,0 +1,24 @@
+agm-map {
+	height: 600px;
+}
+.infoWindowContent {
+	font-size:  14px !important;
+	border-top: 1px solid #ccc;
+	padding-top: 10px;
+}
+h2 {
+	margin-bottom:0;
+	margin-top: 0;
+}
+#legend {
+	background: #FFF;
+	padding: 10px;
+	margin: 5px;
+	font-size: 12px;
+	font-family: Arial, sans-serif;
+	opacity: 0.7;
+	z-index: 0;
+	position: absolute;
+	top: 100px;
+	right: 10px;
+}

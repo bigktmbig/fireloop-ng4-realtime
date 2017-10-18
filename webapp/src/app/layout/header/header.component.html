@@ -2,8 +2,8 @@
 	<h1> Big developer</h1>
 	<nav>
 		<a routerLink="/" routerLinkActive="active">Home</a>
-		<a routerLink="/admin" routerLinkActive="active">Admin</a>
-		<a routerLink="/login" routerLinkActive="active">Login</a>
-		<a routerLink="/not-found" routerLinkActive="active">Page Not found</a>
+		<a *ngIf="!isLogin" routerLink="/login" routerLinkActive="active">Login</a>
+		<a *ngIf="isLogin" routerLink="/profile" routerLinkActive="active">Profile</a>
+		<button *ngIf="isLogin" (click)="logout()">Logout</button>
 	</nav>
 </div>

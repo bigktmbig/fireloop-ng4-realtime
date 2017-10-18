@@ -8,8 +8,19 @@ import { HomepageRoutingModule } from './homepage-routing.module';
 import { LoginComponent } from './login/login.component';
 import { TodoComponent } from './todo/todo.component';
 import { ProfileComponent } from './profile/profile.component';
+import { IndexComponent } from './index/index.component';
+import { HeaderDrtDirective } from './header-drt.directive';
+import { FooterDrtDirective } from './footer-drt.directive';
 
 @NgModule({
+	declarations: [
+	LoginComponent,
+	TodoComponent,
+	ProfileComponent,
+	IndexComponent,
+	HeaderDrtDirective,
+	FooterDrtDirective
+	],
 	imports: [
 	CommonModule,
 	FormsModule,
@@ -19,7 +30,6 @@ import { ProfileComponent } from './profile/profile.component';
 		apiKey: 'AIzaSyADPPgcIAf7t6nIzf7Do467IWOU6OQkst8'
 	})
 	],
-	bootstrap: [LoginComponent, TodoComponent, ProfileComponent],
-	declarations: [LoginComponent, TodoComponent, ProfileComponent]
+	bootstrap: [LoginComponent, TodoComponent, ProfileComponent, IndexComponent]
 })
 export class HomepageModule { }

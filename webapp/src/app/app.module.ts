@@ -6,8 +6,6 @@ import { SDKBrowserModule } from './shared/sdk/index';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HomepageComponent } from './homepage/homepage.component';
-import { HeaderComponent } from './layout/header/header.component';
-import { FooterComponent } from './layout/footer/footer.component';
 
 import { Router } from '@angular/router';
 import { AppRouteModule } from './app-route.module';
@@ -15,7 +13,6 @@ import { PageNotfoundComponent } from './layout/page-notfound/page-notfound.comp
 import { Title } from '@angular/platform-browser';
 import { AgmCoreModule } from '@agm/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-
 
 import { DashboardModule } from './dashboard/dashboard.module';
 import { HomepageModule } from './homepage/homepage.module';
@@ -25,8 +22,6 @@ import { HomepageModule } from './homepage/homepage.module';
   AppComponent,
   DashboardComponent,
   HomepageComponent,
-  HeaderComponent,
-  FooterComponent,
   PageNotfoundComponent
   ],
   imports: [
@@ -43,7 +38,7 @@ import { HomepageModule } from './homepage/homepage.module';
   SDKBrowserModule.forRoot()
   ],
   providers: [],
-  bootstrap: [AppComponent, HeaderComponent, FooterComponent]
+  bootstrap: [AppComponent]
 })
 
 export class AppModule {

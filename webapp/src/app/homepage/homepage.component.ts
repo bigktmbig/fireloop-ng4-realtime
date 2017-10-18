@@ -8,11 +8,7 @@ declare var $ :any;
 	styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
-	lat: number = 16.057683;
-	lng: number = 108.219415;
-	zoom: number = 13;
-	radius: number = 10;
-
+	
 	constructor() { }
 
 	ngOnInit() {

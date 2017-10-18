@@ -48,3 +48,17 @@ h2 {
 .ng-invalid:not(form)  {
 	border-left: 5px solid #a94442; /* red */
 }
+.btn-remove {
+	cursor: pointer;
+}
+.btn-remove i{
+	font-size: 13px;
+	color: #ff0000;
+}
+.btn-add {
+	cursor: pointer;
+}
+.btn-add i{
+	font-size: 13px;
+	color: #00ff00;
+}

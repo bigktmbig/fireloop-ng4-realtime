@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 
 import { Observable } from 'rxjs/Observable';
 import { BigUser, FireLoopRef } from '../../shared/sdk/models';
 import { RealTime, BigUserApi } from '../../shared/sdk/services';
-
 import { CookieService } from 'ngx-cookie-service';
 @Component({
 	selector: 'app-login',
@@ -17,25 +15,11 @@ export class LoginComponent implements OnInit {
 	private users   	: BigUser[] = new Array<BigUser>();
 	private userRef 	: FireLoopRef<BigUser>;
 
-	email		: String;
-	password	: String;
-
-	constructor(private rt: RealTime, private bigUserApi: BigUserApi, private cookieService: CookieService, private router: Router) {
-
-	}
+	constructor(private rt: RealTime, private bigUserApi: BigUserApi, private cookieService: CookieService) { }
 
 	ngOnInit() {
-		this.rt.onReady().subscribe(() => {
-			this.userRef = this.rt.FireLoop.ref<BigUser>(BigUser);
-			this.userRef.on('change').subscribe((users: BigUser[]) => this.users = users);
-		});
 	}
 
-	create(): void {
-		this.userRef.create(this.user).subscribe((res: any) => {
-			console.log(res);
-		});
-	}
 
 	login(): void {
 		this.bigUserApi.login(this.user
@@ -43,13 +27,19 @@ export class LoginComponent implements OnInit {
 		.subscribe(
 			responese => {
 				if(responese) {
-					this.cookieService.set('User', responese, 'object');
-					this.router.navigate(['/profile']);
+					this.cookieService.set('Admin', responese, 'object');
 				}
 			},
 			error => {
 				console.log(error);
 			});
+	}
+
+	logout(): void {
+		this.bigUserApi.logout()
+		.subscribe((user: BigUserApi[]) => {
+			this.cookieService.delete('Admin');
+		});
 	}
 
 }
