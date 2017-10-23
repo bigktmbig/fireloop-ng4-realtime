@@ -9,7 +9,7 @@ import { DashboardRoutingModule } from './dashboard/dashboard-routing.module';
 import { HomepageRoutingModule } from './homepage/homepage-routing.module';
 
 const appRoutes: Routes = [
-{ 
+{
 	path: '**', 
 	component: PageNotfoundComponent, 
 	data: {

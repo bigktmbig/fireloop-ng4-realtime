@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Observable } from 'rxjs/Observable';
+import { House, FireLoopRef } from '../../shared/sdk/models';
+import { RealTime, HouseApi } from '../../shared/sdk/services';
+import { CookieService } from 'ngx-cookie-service';
+
 @Component({
 	selector: 'app-profile',
 	templateUrl: './profile.component.html',
@@ -7,21 +12,28 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class ProfileComponent implements OnInit {
+
+	private house    	: House   = new House();
+	private houses   	: House[] = new Array<House>();
+	private houseRef 	: FireLoopRef<House>;
+
 	latitude: number = 16.057683;
 	longitude: number = 108.219415;
 	address: string = "Chưa xác định";
+	name: string = "Chưa xác định";
 	zoom: number = 13;
 	radius: number = 10;
-	profile: object = {};
-	markers: any = [];
-	constructor() {
+
+	constructor(private rt: RealTime, private houseApi: HouseApi, private cookieService: CookieService) {
 	}
 
 	ngOnInit() {
-		this.markers.push({
-			address: this.address,
-			latitude: this.latitude,
-			longitude: this.longitude
+		this.rt.onReady().subscribe(() => {
+			this.houseRef = this.rt.FireLoop.ref<House>(House);
+			this.houseRef.on('change').subscribe((houses: House[]) => 
+			{
+				this.houses = houses;
+			});
 		});
 	}
 
@@ -30,16 +42,22 @@ export class ProfileComponent implements OnInit {
 	}
 
 	mapClicked($event: any) {
-		this.markers.push({
-			address: this.address,
-			latitude: $event.coords.lat,
-			longitude: $event.coords.lng
+		this.house.name = this.name;
+		this.house.address = this.address;
+		this.house.latitude = $event.coords.lat;
+		this.house.longitude = $event.coords.lng;
+		this.house.owner_id = 1;
+
+		this.houseRef.create(this.house).subscribe((res: any) => {
+			console.log(res);
 		});
 	}
 
-	removePosition(idx: number) {
-		this.markers.splice(idx, 1);
-	}
+	removePosition(house: any) {
+		// this.houseRef.delete(house).subscribe((res: any) => {
+			// 	console.log(res);
+			// });
+		}
 
-}
+	}
 

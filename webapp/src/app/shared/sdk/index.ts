@@ -49,8 +49,23 @@ import { SocketDriver } from './sockets/socket.driver';
 import { SocketConnection } from './sockets/socket.connections';
 import { RealTime } from './services/core/real.time';
 import { TodoApi } from './services/custom/Todo';
-import { NoteApi } from './services/custom/Note';
 import { BigUserApi } from './services/custom/BigUser';
+import { CustomerApi } from './services/custom/Customer';
+import { CategoryApi } from './services/custom/Category';
+import { SupplierApi } from './services/custom/Supplier';
+import { DefaultApi } from './services/custom/Default';
+import { PbsApi } from './services/custom/Pbs';
+import { ReturnApi } from './services/custom/Return';
+import { ServiceApi } from './services/custom/Service';
+import { ServiceStoreApi } from './services/custom/ServiceStore';
+import { ServiceTmpApi } from './services/custom/ServiceTmp';
+import { StoreApi } from './services/custom/Store';
+import { PointApi } from './services/custom/Point';
+import { RepointApi } from './services/custom/Repoint';
+import { RepointDefaultApi } from './services/custom/RepointDefault';
+import { LogApi } from './services/custom/Log';
+import { HouseApi } from './services/custom/House';
+import { RoomApi } from './services/custom/Room';
 /**
 * @module SDKBrowserModule
 * @description
@@ -83,8 +98,23 @@ export class SDKBrowserModule {
         SDKModels,
         RealTime,
         TodoApi,
-        NoteApi,
         BigUserApi,
+        CustomerApi,
+        CategoryApi,
+        SupplierApi,
+        DefaultApi,
+        PbsApi,
+        ReturnApi,
+        ServiceApi,
+        ServiceStoreApi,
+        ServiceTmpApi,
+        StoreApi,
+        PointApi,
+        RepointApi,
+        RepointDefaultApi,
+        LogApi,
+        HouseApi,
+        RoomApi,
         internalStorageProvider,
         { provide: SDKStorage, useClass: StorageBrowser },
         { provide: SocketDriver, useClass: SocketBrowser }

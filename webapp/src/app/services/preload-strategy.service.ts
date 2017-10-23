@@ -8,6 +8,7 @@ export class PreloadStrategyService implements PreloadingStrategy {
 	preloadedModules: string[] = [];
 
 	preload(route: Route, load: () => Observable<any>): Observable<any> {
+		console.log(route);
 		if (route.data && route.data['preload']) {
 			// add the route path to the preloaded module array
 			this.preloadedModules.push(route.path);

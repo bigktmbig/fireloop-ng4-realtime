@@ -14,19 +14,22 @@ import { RealTime, BigUserApi } from '../../shared/sdk/services';
 export class HeaderComponent implements OnInit {
 
 	private user    	: BigUser   = new BigUser();
-	private users   	: BigUser[] = new Array<BigUser>();
+	private userRef 	: FireLoopRef<BigUser>;
 
 	isLogin		?: boolean = false;
-	constructor(private bigUserApi: BigUserApi, private cookieService: CookieService, private router: Router) { }
+	constructor(private rt: RealTime, private bigUserApi: BigUserApi, private cookieService: CookieService, private router: Router) { }
 
 	ngOnInit() {
-		if(this.cookieService.get('User')){
-			this.isLogin = true;
-		}
+		this.rt.onReady().subscribe(() => {
+			this.userRef = this.rt.FireLoop.ref<BigUser>(BigUser);
+
+			if(this.bigUserApi.isAuthenticated()){
+				this.isLogin = true;
+			}
+		});
 	}
 
 	logout(): void {
-		console.log();
 		this.bigUserApi.logout()
 		.subscribe((user: BigUserApi[]) => {
 			this.cookieService.delete('User');

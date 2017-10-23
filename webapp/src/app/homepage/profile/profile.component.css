@@ -4,13 +4,19 @@ app-profile {
 }
 .wrap-container {
 	width: 100%;
+	margin: 5px 5px;
 }
+
+.wrap-container h3{
+	color: #3879d9;
+}
+
 .wrap-content-left {
 	float: left;
 	width: 40%;
 }
 agm-map {
-	height: 350px;
+	height: 550px;
 	width: 600px;
 }
 .infoWindowContent {
@@ -31,8 +37,8 @@ h2 {
 	opacity: 0.7;
 	z-index: 0;
 	position: absolute;
-	top: 150px;
-	left: 10px;
+	top: 0px;
+	left: 15px;
 }
 
 .wrap-content-right {
@@ -52,8 +58,17 @@ h2 {
 	cursor: pointer;
 }
 .btn-remove i{
-	font-size: 13px;
+	font-size: 44px;
+	margin-top: 28px;
 	color: #ff0000;
+}
+.btn-detail {
+	cursor: pointer;
+}
+.btn-detail i{
+	font-size: 46px;
+	margin-top: 28px;
+	color: #3879d9;
 }
 .btn-add {
 	cursor: pointer;

@@ -1,8 +1,13 @@
 /* tslint:disable */
+import {
+  House
+} from '../index';
 
 declare var Object: any;
 export interface BigUserInterface {
   "name"?: string;
+  "code"?: string;
+  "phone"?: string;
   "onOff"?: boolean;
   "firstName"?: string;
   "lastName"?: string;
@@ -17,10 +22,13 @@ export interface BigUserInterface {
   "updatedAt"?: Date;
   accessTokens?: any[];
   roles?: any[];
+  houses?: House[];
 }
 
 export class BigUser implements BigUserInterface {
   "name": string;
+  "code": string;
+  "phone": string;
   "onOff": boolean;
   "firstName": string;
   "lastName": string;
@@ -35,6 +43,7 @@ export class BigUser implements BigUserInterface {
   "updatedAt": Date;
   accessTokens: any[];
   roles: any[];
+  houses: House[];
   constructor(data?: BigUserInterface) {
     Object.assign(this, data);
   }
@@ -68,6 +77,14 @@ export class BigUser implements BigUserInterface {
       properties: {
         "name": {
           name: 'name',
+          type: 'string'
+        },
+        "code": {
+          name: 'code',
+          type: 'string'
+        },
+        "phone": {
+          name: 'phone',
           type: 'string'
         },
         "onOff": {
@@ -129,6 +146,11 @@ export class BigUser implements BigUserInterface {
           name: 'roles',
           type: 'any[]',
           model: ''
+        },
+        houses: {
+          name: 'houses',
+          type: 'House[]',
+          model: 'House'
         },
       }
     }
