@@ -2,13 +2,13 @@
 
 declare var Object: any;
 export interface PointInterface {
-  "id"?: number;
+  "id"?: any;
   "createdAt"?: Date;
   "updatedAt"?: Date;
 }
 
 export class Point implements PointInterface {
-  "id": number;
+  "id": any;
   "createdAt": Date;
   "updatedAt": Date;
   constructor(data?: PointInterface) {
@@ -44,7 +44,7 @@ export class Point implements PointInterface {
       properties: {
         "id": {
           name: 'id',
-          type: 'number'
+          type: 'any'
         },
         "createdAt": {
           name: 'createdAt',

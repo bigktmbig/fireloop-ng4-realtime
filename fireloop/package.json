@@ -38,6 +38,7 @@
   "devDependencies": {
     "eslint": "^3.17.1",
     "eslint-config-loopback": "^8.0.0",
+    "loopback-connector-mongodb": "^3.3.0",
     "nsp": "^2.1.0"
   },
   "repository": {

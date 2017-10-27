@@ -2,13 +2,13 @@
 
 declare var Object: any;
 export interface RepointDefaultInterface {
-  "id"?: number;
+  "id"?: any;
   "createdAt"?: Date;
   "updatedAt"?: Date;
 }
 
 export class RepointDefault implements RepointDefaultInterface {
-  "id": number;
+  "id": any;
   "createdAt": Date;
   "updatedAt": Date;
   constructor(data?: RepointDefaultInterface) {
@@ -44,7 +44,7 @@ export class RepointDefault implements RepointDefaultInterface {
       properties: {
         "id": {
           name: 'id',
-          type: 'number'
+          type: 'any'
         },
         "createdAt": {
           name: 'createdAt',

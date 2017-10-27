@@ -5,7 +5,7 @@ export interface StoreInterface {
   "code"?: string;
   "name"?: string;
   "date"?: string;
-  "id"?: number;
+  "id"?: any;
   "createdAt"?: Date;
   "updatedAt"?: Date;
 }
@@ -14,7 +14,7 @@ export class Store implements StoreInterface {
   "code": string;
   "name": string;
   "date": string;
-  "id": number;
+  "id": any;
   "createdAt": Date;
   "updatedAt": Date;
   constructor(data?: StoreInterface) {
@@ -62,7 +62,7 @@ export class Store implements StoreInterface {
         },
         "id": {
           name: 'id',
-          type: 'number'
+          type: 'any'
         },
         "createdAt": {
           name: 'createdAt',

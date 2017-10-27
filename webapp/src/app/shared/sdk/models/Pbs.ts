@@ -2,13 +2,13 @@
 
 declare var Object: any;
 export interface PbsInterface {
-  "id"?: number;
+  "id"?: any;
   "createdAt"?: Date;
   "updatedAt"?: Date;
 }
 
 export class Pbs implements PbsInterface {
-  "id": number;
+  "id": any;
   "createdAt": Date;
   "updatedAt": Date;
   constructor(data?: PbsInterface) {
@@ -44,7 +44,7 @@ export class Pbs implements PbsInterface {
       properties: {
         "id": {
           name: 'id',
-          type: 'number'
+          type: 'any'
         },
         "createdAt": {
           name: 'createdAt',

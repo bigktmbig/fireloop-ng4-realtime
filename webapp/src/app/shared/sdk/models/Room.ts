@@ -11,8 +11,8 @@ export interface RoomInterface {
   "note"?: string;
   "number_of_people"?: number;
   "is_toilet"?: boolean;
-  "house_id": number;
-  "id"?: number;
+  "house_id": any;
+  "id"?: any;
   "createdAt"?: Date;
   "updatedAt"?: Date;
   house?: House;
@@ -25,8 +25,8 @@ export class Room implements RoomInterface {
   "note": string;
   "number_of_people": number;
   "is_toilet": boolean;
-  "house_id": number;
-  "id": number;
+  "house_id": any;
+  "id": any;
   "createdAt": Date;
   "updatedAt": Date;
   house: House;
@@ -89,11 +89,11 @@ export class Room implements RoomInterface {
         },
         "house_id": {
           name: 'house_id',
-          type: 'number'
+          type: 'any'
         },
         "id": {
           name: 'id',
-          type: 'number'
+          type: 'any'
         },
         "createdAt": {
           name: 'createdAt',

@@ -2,13 +2,13 @@
 
 declare var Object: any;
 export interface ServiceStoreInterface {
-  "id"?: number;
+  "id"?: any;
   "createdAt"?: Date;
   "updatedAt"?: Date;
 }
 
 export class ServiceStore implements ServiceStoreInterface {
-  "id": number;
+  "id": any;
   "createdAt": Date;
   "updatedAt": Date;
   constructor(data?: ServiceStoreInterface) {
@@ -44,7 +44,7 @@ export class ServiceStore implements ServiceStoreInterface {
       properties: {
         "id": {
           name: 'id',
-          type: 'number'
+          type: 'any'
         },
         "createdAt": {
           name: 'createdAt',

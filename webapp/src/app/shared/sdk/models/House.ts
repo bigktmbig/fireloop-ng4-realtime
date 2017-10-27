@@ -11,8 +11,8 @@ export interface HouseInterface {
   "latitude": number;
   "longitude": number;
   "radius"?: number;
-  "owner_id": number;
-  "id"?: number;
+  "owner_id": any;
+  "id"?: any;
   "createdAt"?: Date;
   "updatedAt"?: Date;
   user?: BigUser;
@@ -25,8 +25,8 @@ export class House implements HouseInterface {
   "latitude": number;
   "longitude": number;
   "radius": number;
-  "owner_id": number;
-  "id": number;
+  "owner_id": any;
+  "id": any;
   "createdAt": Date;
   "updatedAt": Date;
   user: BigUser;
@@ -89,11 +89,11 @@ export class House implements HouseInterface {
         },
         "owner_id": {
           name: 'owner_id',
-          type: 'number'
+          type: 'any'
         },
         "id": {
           name: 'id',
-          type: 'number'
+          type: 'any'
         },
         "createdAt": {
           name: 'createdAt',

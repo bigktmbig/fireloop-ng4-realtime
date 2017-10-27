@@ -5,7 +5,7 @@ export interface SupplierInterface {
   "code"?: string;
   "name"?: string;
   "create"?: string;
-  "id"?: number;
+  "id"?: any;
   "createdAt"?: Date;
   "updatedAt"?: Date;
 }
@@ -14,7 +14,7 @@ export class Supplier implements SupplierInterface {
   "code": string;
   "name": string;
   "create": string;
-  "id": number;
+  "id": any;
   "createdAt": Date;
   "updatedAt": Date;
   constructor(data?: SupplierInterface) {
@@ -62,7 +62,7 @@ export class Supplier implements SupplierInterface {
         },
         "id": {
           name: 'id',
-          type: 'number'
+          type: 'any'
         },
         "createdAt": {
           name: 'createdAt',

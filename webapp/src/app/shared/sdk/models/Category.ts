@@ -5,7 +5,7 @@ export interface CategoryInterface {
   "code"?: string;
   "name"?: string;
   "create"?: string;
-  "id"?: number;
+  "id"?: any;
   "createdAt"?: Date;
   "updatedAt"?: Date;
 }
@@ -14,7 +14,7 @@ export class Category implements CategoryInterface {
   "code": string;
   "name": string;
   "create": string;
-  "id": number;
+  "id": any;
   "createdAt": Date;
   "updatedAt": Date;
   constructor(data?: CategoryInterface) {
@@ -62,7 +62,7 @@ export class Category implements CategoryInterface {
         },
         "id": {
           name: 'id',
-          type: 'number'
+          type: 'any'
         },
         "createdAt": {
           name: 'createdAt',

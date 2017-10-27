@@ -1,21 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
-import { House, FireLoopRef } from '../../shared/sdk/models';
-import { RealTime, HouseApi } from '../../shared/sdk/services';
+import { House, Room, FireLoopRef } from '../../shared/sdk/models';
+import { RealTime, HouseApi, RoomApi } from '../../shared/sdk/services';
 import { CookieService } from 'ngx-cookie-service';
-
 @Component({
-	selector: 'app-profile',
-	templateUrl: './profile.component.html',
-	styleUrls: ['./profile.component.css']
+	selector: 'app-house',
+	templateUrl: './house.component.html',
+	styleUrls: ['./house.component.css']
 })
-
-export class ProfileComponent implements OnInit {
-
+export class HouseComponent implements OnInit {
 	private house    	: House   = new House();
 	private houses   	: House[] = new Array<House>();
 	private houseRef 	: FireLoopRef<House>;
+
+	private room    	: Room   = new Room();
+	private rooms   	: Room[] = new Array<Room>();
+	private roomRef 	: FireLoopRef<Room>;
 
 	latitude: number = 16.057683;
 	longitude: number = 108.219415;
@@ -24,21 +25,22 @@ export class ProfileComponent implements OnInit {
 	zoom: number = 13;
 	radius: number = 10;
 
-	constructor(private rt: RealTime, private houseApi: HouseApi, private cookieService: CookieService) {
-	}
+	constructor(private rt: RealTime, private houseApi: HouseApi, private roomApi: RoomApi, private cookieService: CookieService) { }
 
 	ngOnInit() {
 		this.rt.onReady().subscribe(() => {
 			this.houseRef = this.rt.FireLoop.ref<House>(House);
+			this.roomRef = this.rt.FireLoop.ref<Room>(Room);
+
 			this.houseRef.on('change').subscribe((houses: House[]) => 
 			{
 				this.houses = houses;
 			});
+			this.roomRef.on('change').subscribe((rooms: Room[]) => 
+			{
+				this.rooms = rooms;
+			});
 		});
-	}
-
-	onSubmit() {
-		console.log('submited successfully!');
 	}
 
 	mapClicked($event: any) {
@@ -74,5 +76,31 @@ export class ProfileComponent implements OnInit {
 		});
 	}
 
-}
+	createRoom() {
+		this.roomRef.create(this.room).subscribe((res: any) => {
+			//console.log(res);
+		},
+		err => {
+			console.log(err);
+		});
+	}
 
+	editRoom(room: Room): void {
+		this.roomRef.upsert(room).subscribe((res: any) => {
+			//console.log(res);
+		},
+		err => {
+			console.log(err);
+		});
+	}
+
+	removeRoom(room: Room) {
+		this.roomRef.remove(room).subscribe((res: any) => {
+			//console.log(res);
+		},
+		err => {
+			console.log(err);
+		});
+	}
+
+}

@@ -14,14 +14,14 @@
 				<p>Rooms Off: <strong>200</strong></p>
 			</div>
 		</div>
-		<div class="col-md-7">
+		<div class="col-md-7 wrap-content-right">
 			<h3>Nhà của bạn ở đâu nhỉ?</h3>
 			<div class="container-information">
 				<form (ngSubmit)="onSubmit()" #heroForm="ngForm">
 					<div *ngFor="let house of houses; let j = index">
 						<h4>Nhà số {{j+1}}: </h4>
 						<div class="row">
-							<div class="col-md-10">
+							<div class="col-md-9">
 								<div class="form-group">
 									<div class="row">
 										<div class="col-md-6">
@@ -48,8 +48,9 @@
 									required [(ngModel)]="house.name" name="name{{j+1}}">
 								</div>
 							</div>
-							<div class="col-md-2">
-								<a class="btn-remove" (click)="removePosition(j)"><i class="fa fa-minus-square" aria-hidden="true"></i></a>
+							<div class="col-md-3">
+								<a class="btn-remove" (click)="removeHouse(house)"><i class="fa fa-minus-square" aria-hidden="true"></i></a>
+								<a class="btn-edit" (click)="editHouse(house)"><i class="fa fa-edit" aria-hidden="true"></i></a>
 								<a class="btn-detail" (click)="detailHouse(house)"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
 							</div>
 						</div>

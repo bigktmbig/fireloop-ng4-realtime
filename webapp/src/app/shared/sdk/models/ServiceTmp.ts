@@ -2,13 +2,13 @@
 
 declare var Object: any;
 export interface ServiceTmpInterface {
-  "id"?: number;
+  "id"?: any;
   "createdAt"?: Date;
   "updatedAt"?: Date;
 }
 
 export class ServiceTmp implements ServiceTmpInterface {
-  "id": number;
+  "id": any;
   "createdAt": Date;
   "updatedAt": Date;
   constructor(data?: ServiceTmpInterface) {
@@ -44,7 +44,7 @@ export class ServiceTmp implements ServiceTmpInterface {
       properties: {
         "id": {
           name: 'id',
-          type: 'number'
+          type: 'any'
         },
         "createdAt": {
           name: 'createdAt',

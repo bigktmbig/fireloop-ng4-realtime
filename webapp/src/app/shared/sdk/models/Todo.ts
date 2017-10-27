@@ -3,14 +3,14 @@
 declare var Object: any;
 export interface TodoInterface {
   "text": string;
-  "id"?: number;
+  "id"?: any;
   "createdAt"?: Date;
   "updatedAt"?: Date;
 }
 
 export class Todo implements TodoInterface {
   "text": string;
-  "id": number;
+  "id": any;
   "createdAt": Date;
   "updatedAt": Date;
   constructor(data?: TodoInterface) {
@@ -50,7 +50,7 @@ export class Todo implements TodoInterface {
         },
         "id": {
           name: 'id',
-          type: 'number'
+          type: 'any'
         },
         "createdAt": {
           name: 'createdAt',

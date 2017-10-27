@@ -2,13 +2,13 @@
 
 declare var Object: any;
 export interface ReturnInterface {
-  "id"?: number;
+  "id"?: any;
   "createdAt"?: Date;
   "updatedAt"?: Date;
 }
 
 export class Return implements ReturnInterface {
-  "id": number;
+  "id": any;
   "createdAt": Date;
   "updatedAt": Date;
   constructor(data?: ReturnInterface) {
@@ -44,7 +44,7 @@ export class Return implements ReturnInterface {
       properties: {
         "id": {
           name: 'id',
-          type: 'number'
+          type: 'any'
         },
         "createdAt": {
           name: 'createdAt',

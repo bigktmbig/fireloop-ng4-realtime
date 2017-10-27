@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { TodoComponent } from './todo/todo.component';
 import { ProfileComponent } from './profile/profile.component';
 import { IndexComponent } from './index/index.component';
+import { HouseComponent } from './house/house.component';
 
 import { AuthService } from '../services/auth.service';
 const routes: Routes = [
@@ -41,8 +42,7 @@ const routes: Routes = [
 			{ name: 'author',   content: 'bigdeveloper.com'},
 			{ name: 'keywords', content: 'login'},
 			{ name: 'description', content: 'This is my login!' }
-			],
-			preload: true
+			]
 		}
 	},
 	{ 
@@ -67,8 +67,20 @@ const routes: Routes = [
 			{ name: 'author',   content: 'bigdeveloper.com'},
 			{ name: 'keywords', content: 'profile'},
 			{ name: 'description', content: 'This is my profile!' }
-			],
-			preload: true
+			]
+		},
+		canActivate: [AuthService]
+	},
+	{ 
+		path: 'house/:id',
+		component: HouseComponent,
+		data: {
+			title: 'House details page',
+			metas: [
+			{ name: 'author',   content: 'bigdeveloper.com'},
+			{ name: 'keywords', content: 'house details'},
+			{ name: 'description', content: 'This is my House detais!' }
+			]
 		},
 		canActivate: [AuthService]
 	}]

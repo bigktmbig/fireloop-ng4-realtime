@@ -21,95 +21,95 @@
     "public": false
   },
   "AccessToken": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": false
   },
   "ACL": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": false
   },
   "RoleMapping": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": false
   },
   "Role": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": false
   },
   "Todo": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": true
   },
   "Note": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": false
   },
   "BigUser": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": true
   },
   "Customer": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": true
   },
   "Category": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": true
   },
   "Supplier": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": true
   },
   "Default": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": true
   },
   "Pbs": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": true
   },
   "Return": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": true
   },
   "Service": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": true
   },
   "ServiceStore": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": true
   },
   "ServiceTmp": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": true
   },
   "Store": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": true
   },
   "Point": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": true
   },
   "Repoint": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": true
   },
   "RepointDefault": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": true
   },
   "Log": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": true
   },
   "House": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": true
   },
   "Room": {
-    "dataSource": "db",
+    "dataSource": "mongodb",
     "public": true
   }
 }

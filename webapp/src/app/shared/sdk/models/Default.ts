@@ -2,13 +2,13 @@
 
 declare var Object: any;
 export interface DefaultInterface {
-  "id"?: number;
+  "id"?: any;
   "createdAt"?: Date;
   "updatedAt"?: Date;
 }
 
 export class Default implements DefaultInterface {
-  "id": number;
+  "id": any;
   "createdAt": Date;
   "updatedAt": Date;
   constructor(data?: DefaultInterface) {
@@ -44,7 +44,7 @@ export class Default implements DefaultInterface {
       properties: {
         "id": {
           name: 'id',
-          type: 'number'
+          type: 'any'
         },
         "createdAt": {
           name: 'createdAt',

@@ -2,13 +2,13 @@
 
 declare var Object: any;
 export interface CustomerInterface {
-  "id"?: number;
+  "id"?: any;
   "createdAt"?: Date;
   "updatedAt"?: Date;
 }
 
 export class Customer implements CustomerInterface {
-  "id": number;
+  "id": any;
   "createdAt": Date;
   "updatedAt": Date;
   constructor(data?: CustomerInterface) {
@@ -44,7 +44,7 @@ export class Customer implements CustomerInterface {
       properties: {
         "id": {
           name: 'id',
-          type: 'number'
+          type: 'any'
         },
         "createdAt": {
           name: 'createdAt',

@@ -17,7 +17,7 @@ export interface BigUserInterface {
   "email": string;
   "emailVerified"?: boolean;
   "verificationToken"?: string;
-  "id"?: number;
+  "id"?: any;
   "createdAt"?: Date;
   "updatedAt"?: Date;
   accessTokens?: any[];
@@ -38,7 +38,7 @@ export class BigUser implements BigUserInterface {
   "email": string;
   "emailVerified": boolean;
   "verificationToken": string;
-  "id": number;
+  "id": any;
   "createdAt": Date;
   "updatedAt": Date;
   accessTokens: any[];
@@ -125,7 +125,7 @@ export class BigUser implements BigUserInterface {
         },
         "id": {
           name: 'id',
-          type: 'number'
+          type: 'any'
         },
         "createdAt": {
           name: 'createdAt',

@@ -10,6 +10,7 @@ import { LoginComponent } from './login/login.component';
 import { TodoComponent } from './todo/todo.component';
 import { ProfileComponent } from './profile/profile.component';
 import { IndexComponent } from './index/index.component';
+import { HouseComponent } from './house/house.component';
 
 @NgModule({
 	declarations: [
@@ -17,6 +18,7 @@ import { IndexComponent } from './index/index.component';
 	TodoComponent,
 	ProfileComponent,
 	IndexComponent,
+	HouseComponent,
 	],
 	imports: [
 	CommonModule,
@@ -32,7 +34,8 @@ import { IndexComponent } from './index/index.component';
 	LoginComponent,
 	TodoComponent,
 	ProfileComponent,
-	IndexComponent
+	IndexComponent,
+	HouseComponent
 	]
 })
 export class HomepageModule { }
