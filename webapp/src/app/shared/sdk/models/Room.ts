@@ -1,6 +1,7 @@
 /* tslint:disable */
 import {
-  House
+  House,
+  BigUser
 } from '../index';
 
 declare var Object: any;
@@ -12,10 +13,12 @@ export interface RoomInterface {
   "number_of_people"?: number;
   "is_toilet"?: boolean;
   "house_id": any;
+  "owner_id": any;
   "id"?: any;
   "createdAt"?: Date;
   "updatedAt"?: Date;
   house?: House;
+  user?: BigUser;
 }
 
 export class Room implements RoomInterface {
@@ -26,10 +29,12 @@ export class Room implements RoomInterface {
   "number_of_people": number;
   "is_toilet": boolean;
   "house_id": any;
+  "owner_id": any;
   "id": any;
   "createdAt": Date;
   "updatedAt": Date;
   house: House;
+  user: BigUser;
   constructor(data?: RoomInterface) {
     Object.assign(this, data);
   }
@@ -91,6 +96,10 @@ export class Room implements RoomInterface {
           name: 'house_id',
           type: 'any'
         },
+        "owner_id": {
+          name: 'owner_id',
+          type: 'any'
+        },
         "id": {
           name: 'id',
           type: 'any'
@@ -109,6 +118,11 @@ export class Room implements RoomInterface {
           name: 'house',
           type: 'House',
           model: 'House'
+        },
+        user: {
+          name: 'user',
+          type: 'BigUser',
+          model: 'BigUser'
         },
       }
     }

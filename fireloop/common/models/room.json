@@ -32,6 +32,10 @@
     "house_id": {
       "type": "string",
       "required": true
+    },
+    "owner_id": {
+      "type": "string",
+      "required": true
     }
   },
   "validations": [],
@@ -40,6 +44,11 @@
       "type": "belongsTo",
       "model": "House",
       "foreignKey": "house_id"
+    },
+    "user": {
+      "type": "belongsTo",
+      "model": "BigUser",
+      "foreignKey": "owner_id"
     }
   },
   "acls": [],

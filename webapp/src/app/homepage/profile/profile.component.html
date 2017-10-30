@@ -51,7 +51,7 @@
 							<div class="col-md-3">
 								<a class="btn-remove" (click)="removeHouse(house)"><i class="fa fa-minus-square" aria-hidden="true"></i></a>
 								<a class="btn-edit" (click)="editHouse(house)"><i class="fa fa-edit" aria-hidden="true"></i></a>
-								<a class="btn-detail" (click)="detailHouse(house)"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+								<a class="btn-detail" routerLink="/house/{{house.id}}" routerLinkActive="active"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
 							</div>
 						</div>
 					</div>

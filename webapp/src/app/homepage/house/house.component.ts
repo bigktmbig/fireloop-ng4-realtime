@@ -18,12 +18,13 @@ export class HouseComponent implements OnInit {
 	private rooms   	: Room[] = new Array<Room>();
 	private roomRef 	: FireLoopRef<Room>;
 
-	latitude: number = 16.057683;
-	longitude: number = 108.219415;
-	address: string = "Chưa xác định";
-	name: string = "Chưa xác định";
-	zoom: number = 13;
-	radius: number = 10;
+	latitude	: number = 16.057683;
+	longitude	: number = 108.219415;
+	address		: string = "Chưa xác định";
+	name		: string = "Chưa xác định";
+	zoom		: number = 13;
+	radius		: number = 10;
+	zero		: number = 0;
 
 	constructor(private rt: RealTime, private houseApi: HouseApi, private roomApi: RoomApi, private cookieService: CookieService) { }
 
@@ -32,11 +33,19 @@ export class HouseComponent implements OnInit {
 			this.houseRef = this.rt.FireLoop.ref<House>(House);
 			this.roomRef = this.rt.FireLoop.ref<Room>(Room);
 
-			this.houseRef.on('change').subscribe((houses: House[]) => 
+
+			this.houseRef.on('change', {
+				where: {_id: "59ef0608bfe0912478f9605c"},
+				order: "id DESC"
+			}).subscribe((house: House) => 
 			{
-				this.houses = houses;
+				console.log(house);
+				this.house = house;
 			});
-			this.roomRef.on('change').subscribe((rooms: Room[]) => 
+			this.roomRef.on('change', {
+				where: {house_id: "59ef0608bfe0912478f9605c"},
+				order: "id DESC"
+			}).subscribe((rooms: Room[]) => 
 			{
 				this.rooms = rooms;
 			});
@@ -44,14 +53,12 @@ export class HouseComponent implements OnInit {
 	}
 
 	mapClicked($event: any) {
-		this.house.name = this.name;
-		this.house.address = this.address;
 		this.house.latitude = $event.coords.lat;
 		this.house.longitude = $event.coords.lng;
 		this.house.owner_id = JSON.parse(this.cookieService.get('User')).id;
 
-		this.houseRef.create(this.house).subscribe((res: any) => {
-			//console.log(res);
+		this.houseRef.upsert(this.house).subscribe((res: any) => {
+			console.log(res);
 		},
 		err => {
 			console.log(err);
@@ -77,6 +84,13 @@ export class HouseComponent implements OnInit {
 	}
 
 	createRoom() {
+		this.room.name = this.name;
+		this.room.square = 0;
+		this.room.cost = "0";
+		this.room.note = "";
+		this.room.house_id = "59ef0608bfe0912478f9605c";
+		this.room.owner_id = JSON.parse(this.cookieService.get('User')).id;
+
 		this.roomRef.create(this.room).subscribe((res: any) => {
 			//console.log(res);
 		},

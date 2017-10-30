@@ -13,6 +13,7 @@ import { Observable } from 'rxjs/Rx';
 import { Room } from '../../models/Room';
 import { SocketConnection } from '../../sockets/socket.connections';
 import { House } from '../../models/House';
+import { BigUser } from '../../models/BigUser';
 
 
 /**
@@ -52,6 +53,36 @@ export class RoomApi extends BaseLoopBackApi {
     let _method: string = "GET";
     let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
     "/rooms/:id/house";
+    let _routeParams: any = {
+      id: id
+    };
+    let _postBody: any = {};
+    let _urlParams: any = {};
+    if (refresh) _urlParams.refresh = refresh;
+    let result = this.request(_method, _url, _routeParams, _urlParams, _postBody);
+    return result;
+  }
+
+  /**
+   * Fetches belongsTo relation user.
+   *
+   * @param {any} id Room id
+   *
+   * @param {boolean} refresh 
+   *
+   * @returns {object} An empty reference that will be
+   *   populated with the actual data once the response is returned
+   *   from the server.
+   *
+   * <em>
+   * (The remote method definition does not provide any description.
+   * This usually means the response is a `Room` object.)
+   * </em>
+   */
+  public getUser(id: any, refresh: any = {}): Observable<any> {
+    let _method: string = "GET";
+    let _url: string = LoopBackConfig.getPath() + "/" + LoopBackConfig.getApiVersion() +
+    "/rooms/:id/user";
     let _routeParams: any = {
       id: id
     };
