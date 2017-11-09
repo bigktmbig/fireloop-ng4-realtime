@@ -85,7 +85,7 @@
     {
       "accessType": "WRITE",
       "principalType": "ROLE",
-      "principalId": "$everyone",
+      "principalId": "$unauthenticated",
       "permission": "ALLOW",
       "property": "create"
     },

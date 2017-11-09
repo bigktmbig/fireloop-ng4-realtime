@@ -3,24 +3,13 @@
 </p>
 <div class="wrap-container">
 	<div class="row">
-		<div class="col-md-5">
-			<agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" (mapClick)="mapClicked($event)">
-				<agm-marker [latitude]="house.latitude" [longitude]="house.longitude"></agm-marker>
-			</agm-map>
-			<div id="legend">
-				<h4>Search Motel(beta)*</h4>
-				<p>Totals: <strong>12</strong></p>
-				<p>Rooms On: <strong>100</strong></p>
-				<p>Rooms Off: <strong>200</strong></p>
-			</div>
-		</div>
-		<div class="col-md-7 wrap-content-right">
+		<div class="col-md-12">
 			<h3>Thông tin căn nhà?</h3>
 			<div class="container-information">
-				<form (ngSubmit)="onSubmit()" #heroForm="ngForm">
+				<form (ngSubmit)="onSubmit()" #houseForm="ngForm">
 					<div>
 						<div class="row">
-							<div class="col-md-9">
+							<div class="col-md-6">
 								<div class="form-group">
 									<div class="row">
 										<div class="col-md-6">
@@ -46,36 +35,69 @@
 									<input type="text" class="form-control" id="hname{{j+1}}"
 									required [(ngModel)]="house.name" name="hname{{j+1}}">
 								</div>
+								<div class="form-group">
+									<a class="btn btn-save btn-success" (click)="editHouse(house)"><i class="fa fa-save" aria-hidden="true"></i> SAVE</a>
+								</div>
 							</div>
-							<div class="col-md-3">
-								<a class="btn-remove" (click)="removeHouse(house)"><i class="fa fa-minus-square" aria-hidden="true"></i></a>
-								<a class="btn-edit" (click)="editHouse(house)"><i class="fa fa-edit" aria-hidden="true"></i></a>
-								<a class="btn-detail" (click)="detailHouse(house)"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+							<div class="col-md-6">
+								<div class="form-group">
+									<div class="row">
+										<div class="col-md-3">
+											<label for="hrooms">Tổng số phòng</label>
+											<input type="text" class="form-control" id="hrooms{{j+1}}"
+											[value]="totalRooms" name="hrooms{{j+1}}" disabled="disabled">
+										</div>
+										<div class="col-md-3">
+											<label for="hroomsempty">Phòng Trống</label>
+											<input type="text" class="form-control" id="hroomsempty{{j+1}}"
+											[value]="roomsEmpty" name="hroomsempty{{j+1}}" disabled="disabled">
+										</div>
+										<div class="col-md-3">
+											<label for="hroomshire">Phòng đã thuê</label>
+											<input type="text" class="form-control" id="hroomshire{{j+1}}"
+											[value]="roomsHire" name="hroomshire{{j+1}}" disabled="disabled">
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
-					<button type="submit" class="btn btn-success" [disabled]="!heroForm.form.valid">Submit</button>
-					<button type="button" class="btn btn-default" (click)="heroForm.reset()">Reset</button>
-
 				</form>
 			</div>
 		</div>
-		<div class="col-md-12 wrap-content-right">
-			<h3>Số phòng ở của căn nhà?</h3>
+		<div class="col-md-5">
+			<agm-map [latitude]="latitude" [longitude]="longitude" [zoom]="zoom" (mapClick)="mapClicked($event)">
+				<agm-marker [latitude]="house.latitude" [longitude]="house.longitude"></agm-marker>
+			</agm-map>
+			<div id="legend">
+				<h4>Search Motel(beta)*</h4>
+				<p>Totals: <strong>{{this.totalRooms}}</strong></p>
+				<p>Rooms On: <strong>{{this.roomsEmpty}}</strong></p>
+				<p>Rooms Off: <strong>{{this.roomsHire}}</strong></p>
+			</div>
+		</div>
+		<div class="col-md-7 wrap-content-right">
+			<div class="row">
+				<div class="col-md-6">
+					<h3>Số phòng ở của căn nhà?</h3>
+				</div>
+				<div class="col-md-6">
+					<a class="btn btn-success" (click)="createRoom(room)">Add Room</a>
+				</div>
+			</div>
 			<div class="container-information">
 				<form (ngSubmit)="onSubmit()" #heroForm="ngForm">
 					<div *ngFor="let room of rooms; let j = index">
-						<h4>Nhà số {{j+1}}: </h4>
+						<h4>Phòng số {{j+1}}: </h4>
 						<div class="row">
 							<div class="col-md-9">
-
-								<div class="form-group">
-									<label for="name">Tên Nhà</label>
-									<input type="text" class="form-control" id="name{{j+1}}"
-									required [(ngModel)]="room.name" name="name{{j+1}}">
-								</div>
 								<div class="form-group">
 									<div class="row">
+										<div class="col-md-6">
+											<label for="name">Tên Phòng</label>
+											<input type="text" class="form-control" id="name{{j+1}}"
+											required [(ngModel)]="room.name" name="name{{j+1}}">
+										</div>
 										<div class="col-md-3">
 											<label for="square">Diện tích</label>
 											<input type="text" class="form-control" id="square{{j+1}}"
@@ -86,23 +108,34 @@
 											<input type="text" class="form-control" id="cost{{j+1}}"
 											[(ngModel)]="room.cost" name="cost{{j+1}}" >
 										</div>
-										<div class="col-md-6">
-											<label for="note">Mô tả</label>
-											<textarea type="text" class="form-control" id="note{{j+1}}"
-											[(ngModel)]="room.note" name="note{{j+1}}" ></textarea>
-										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="row">
+										<div class="col-md-3">
+											<label for="status">Tình trạng</label>
+											<select class="form-control" id="status{{j+1}}"
+											[(ngModel)]="room.status" name="status{{j+1}}" >
+											<option value="0">Còn trống</option>
+											<option value="1">Đã thuê</option>
+										</select>
+									</div>
+									<div class="col-md-9">
+										<label for="note">Mô tả</label>
+										<textarea type="text" class="form-control" id="note{{j+1}}"
+										[(ngModel)]="room.note" name="note{{j+1}}" ></textarea>
 									</div>
 								</div>
 							</div>
-							<div class="col-md-3">
-								<a class="btn-remove" (click)="removeRoom(room)"><i class="fa fa-minus-square" aria-hidden="true"></i></a>
-								<a class="btn-edit" (click)="editRoom(room)"><i class="fa fa-edit" aria-hidden="true"></i></a>
-							</div>
+						</div>
+						<div class="col-md-3">
+							<a class="btn-remove" (click)="removeRoom(room)"><i class="fa fa-minus-square" aria-hidden="true"></i></a>
+							<a class="btn-edit" (click)="editRoom(room)"><i class="fa fa-edit" aria-hidden="true"></i></a>
 						</div>
 					</div>
-					<a class="btn btn-success" (click)="createRoom(room)">Add Room</a>
-				</form>
-			</div>
+				</div>
+			</form>
 		</div>
 	</div>
+</div>
 </div>

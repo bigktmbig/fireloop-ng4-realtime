@@ -15,6 +15,10 @@
       "type": "number",
       "default": 0
     },
+    "status": {
+      "type": "number",
+      "default": 0
+    },
     "cost": {
       "type": "string",
       "required": true,

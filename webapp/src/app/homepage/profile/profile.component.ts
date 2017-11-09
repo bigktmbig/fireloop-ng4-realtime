@@ -42,11 +42,12 @@ export class ProfileComponent implements OnInit {
 	}
 
 	mapClicked($event: any) {
+		delete this.house.id;
 		this.house.name = this.name;
 		this.house.address = this.address;
 		this.house.latitude = $event.coords.lat;
 		this.house.longitude = $event.coords.lng;
-		this.house.owner_id = JSON.parse(this.cookieService.get('User')).id;
+		this.house.owner_id = JSON.parse(this.cookieService.get('User')).userId;
 
 		this.houseRef.create(this.house).subscribe((res: any) => {
 			//console.log(res);

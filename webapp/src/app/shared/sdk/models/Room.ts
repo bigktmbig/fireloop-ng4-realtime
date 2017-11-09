@@ -8,6 +8,7 @@ declare var Object: any;
 export interface RoomInterface {
   "name": string;
   "square"?: number;
+  "status"?: number;
   "cost": string;
   "note"?: string;
   "number_of_people"?: number;
@@ -24,6 +25,7 @@ export interface RoomInterface {
 export class Room implements RoomInterface {
   "name": string;
   "square": number;
+  "status": number;
   "cost": string;
   "note": string;
   "number_of_people": number;
@@ -72,6 +74,11 @@ export class Room implements RoomInterface {
         },
         "square": {
           name: 'square',
+          type: 'number',
+          default: 0
+        },
+        "status": {
+          name: 'status',
           type: 'number',
           default: 0
         },

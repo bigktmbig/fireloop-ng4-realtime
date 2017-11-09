@@ -85,3 +85,10 @@ h2 {
 	font-size: 13px;
 	color: #00ff00;
 }
+
+.btn-save {
+	cursor: pointer;
+}
+.btn-save i{
+	color: #fff;
+}
